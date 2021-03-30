@@ -27,7 +27,6 @@ def rnt(renta, gastos_deducibles): #calcula los rendimientos netos del trabajo
     :param gastos_deducibles:
     :return: renta - gastos deducibles
     """
-    rendimientos_netos_trabajo = float(renta - gastos_deducibles)
     if rendimientos_netos_trabajo < 0:
         rendimientos_netos_trabajo == 0
         print(rendimientos_netos_trabajo)
@@ -53,9 +52,14 @@ if discapacidad == "Sí" or discapacidad == "Si" or discapacidad == "sí" or dis
         otros_gastos == otros_gastos + 7750.00
 
 gastos_deducibles = seguridad_Social + sindicatos + defensa_juridica
+rendimientos_netos_trabajo = float(renta - gastos_deducibles)
 
-print(f"Tus rendimientos netos del trabajo son {rnt(renta, gastos_deducibles)}")
+#calculo rendimiento neto reducido del trabajo
+if rendimientos_netos_trabajo <= 13115:
+    rntr = rendimientos_netos_trabajo - 5565
+elif rendimientos_netos_trabajo <=16825:
+    rntr = rendimientos_netos_trabajo - (5565 - 1.5*(rendimientos_netos_trabajo-13115))
+else:
+    rntr = rendimientos_netos_trabajo
 
-
-
-
+print("Tus rendimientos netos reducidos del trabajo son", rntr)
