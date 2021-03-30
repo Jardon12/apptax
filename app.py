@@ -57,9 +57,16 @@ rendimientos_netos_trabajo = float(renta - gastos_deducibles)
 #calculo rendimiento neto reducido del trabajo
 if rendimientos_netos_trabajo <= 13115:
     rntr = rendimientos_netos_trabajo - 5565
+    if rntr < 0:
+        rntr = 0
+
 elif rendimientos_netos_trabajo <=16825:
     rntr = rendimientos_netos_trabajo - (5565 - 1.5*(rendimientos_netos_trabajo-13115))
+    if rntr < 0:
+        rntr = 0
 else:
     rntr = rendimientos_netos_trabajo
+
+
 
 print("Tus rendimientos netos reducidos del trabajo son", rntr)
