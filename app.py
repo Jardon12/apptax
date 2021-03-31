@@ -75,6 +75,8 @@ def rendimientos_capital_inmobiliario():
         check_deudas = input("¿El inquilino no ha pagado alguna de las mensualidades y han transcurrido más de 6 meses desde que ha reclamado el cobro?\n ")
         if check_deudas in respuesta_positiva:
             deudas = float(input("Por favor, introduzca el importe total de estas mensualidades no cobradas:\n "))
+        else:
+            deudas = 0
         valor_catastral = float(input("Por favor, introduzca el valor catastral del inmueble, excluido el suelo: \n"))
         coste_adquisicion = float(input("Por favor, introduzca el precio pagado por el inmueble cuando se adquirió, excluido el valor del suelo: \n"))
         if valor_catastral > coste_adquisicion:
@@ -121,6 +123,7 @@ def ganancias_patrimoniales():
         ganancia_patrimonial = [valor_transmision_lista + valor_adquisicion_lista]
         for i in ganancia_patrimonial:
             print("Tus ganancias/pérdidas patrimoniales son", sum(i))
+
 def main():
     menu ='''
     1. Rendimientos del trabajo.
